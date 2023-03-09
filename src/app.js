@@ -4,6 +4,8 @@ const hbs = require('hbs')
 const app = express()
 const map = require('./weather')
 
+const port = process.env.PORT || 3000 // ensures that the app.listen will use url when uploaded in cloud while 3000 if app is run locally 
+
 // DEFINE PATHS FOR EXPRESS CONFIG
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewPath = path.join(__dirname, '../templates/views')
@@ -77,6 +79,6 @@ app.get('*', (req,res)=>{
     })
 })
 
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
     console.log('Server is up and running! ')
 })
